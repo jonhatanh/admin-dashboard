@@ -162,19 +162,19 @@ main .projects {
   grid-area: projects;
 }
 main .projects h3 {
-  padding-bottom: 10px;
+  padding-bottom: 14px;
 }
 main .announcements {
   grid-area: announcements;
 }
 main .announcements h3 {
-  padding-bottom: 10px;
+  padding-bottom: 14px;
 }
 main .trending {
   grid-area: trending;
 }
 main .trending h3 {
-  padding-bottom: 10px;
+  padding-bottom: 14px;
 }
 
 .projects > div {
@@ -192,7 +192,7 @@ main .trending h3 {
   overflow: hidden;
   border-radius: 8px;
   border-left: 8px solid orange;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 .projects > div .card .content p:first-child {
   font-weight: 700;
@@ -211,6 +211,31 @@ main .trending h3 {
   border: none;
   font-size: 18px;
   padding: 5px;
+}
+
+.announcements > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.announcements > div .card {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+}
+.announcements > div .card p:first-child {
+  font-weight: 700;
+}
+.announcements > div .card p:last-child {
+  max-height: 50px;
+  overflow: hidden;
+  font-size: 13px;
+  opacity: 0.7;
+}
+.announcements > div .card:last-child {
+  border-bottom: none;
 }
 
 .trending > div img {
