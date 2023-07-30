@@ -62,10 +62,58 @@ nav {
             display: grid;
             grid-template-columns: 1.5rem 1fr;
             gap: 5px;
+            list-style: none;
         }
     }
+}
 
-    li {
-        list-style: none;
+/* Header */
+
+header {
+    display: flex;
+    flex-direction: column;
+
+    .top {
+        padding: 0 40px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+    }
+
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input {
+        height: 30px;
+        border-radius: 20px;
+        background-color: rgba($color: gray, $alpha: 0.2);
+        border: none;
+        font-family: inherit;
+        padding-left: 8px;
+        font-size: 16px;
+        flex: 1;
+        max-width: 700px;
+    }
+}
+.profile-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 800;
+
+    i {
+        margin: 0 10px 0 0;
+    }
+    img {
+        max-width: 45px;
+        border-radius: 50%;
+    }
+    span {
+        flex: 1;
     }
 }
