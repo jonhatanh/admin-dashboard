@@ -69,6 +69,10 @@ nav {
 nav .main ul, nav .extras ul {
   display: grid;
 }
+nav .main ul a, nav .extras ul a {
+  text-decoration: none;
+  color: inherit;
+}
 nav .main ul li, nav .extras ul li {
   position: relative;
   display: grid;
@@ -84,14 +88,16 @@ nav .main ul li, nav .extras ul li {
 nav .main ul li::before, nav .extras ul li::before {
   content: "";
   position: absolute;
-  width: 100%;
-  left: -100%;
+  width: 110%;
+  left: -110%;
   top: 0;
   bottom: 0;
   right: 0;
   background-color: var(--secondary);
   transition: 0.2s ease-out;
   z-index: -1;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 nav .main ul li:hover::before, nav .extras ul li:hover::before {
   left: 0;
@@ -99,6 +105,7 @@ nav .main ul li:hover::before, nav .extras ul li:hover::before {
 nav .main ul li.active, nav .extras ul li.active {
   font-size: 1.3rem;
   background-color: var(--secondary);
+  font-weight: 600;
 }
 
 /* Header */
