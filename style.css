@@ -3,7 +3,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -66,7 +65,7 @@ header {
   flex-direction: column;
 }
 header .top {
-  padding: 0 40px;
+  padding: 20px 40px;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
@@ -133,12 +132,13 @@ header .bottom {
   border-radius: 50%;
 }
 
-.options {
+.projects > div .card .card-options, .options {
   justify-self: end;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+
 .options button {
   background-color: skyblue;
   padding: 10px 30px;
@@ -149,5 +149,73 @@ header .bottom {
 }
 
 /* Main Content */
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "projects announcements" "projects trending";
+  column-gap: 20px;
+  row-gap: 40px;
+  padding: 20px;
+}
+main .projects {
+  grid-area: projects;
+}
+main .projects h3 {
+  padding-bottom: 10px;
+}
+main .announcements {
+  grid-area: announcements;
+}
+main .announcements h3 {
+  padding-bottom: 10px;
+}
+main .trending {
+  grid-area: trending;
+}
+main .trending h3 {
+  padding-bottom: 10px;
+}
+
+.projects > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+.projects > div .card {
+  max-height: 300px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr;
+  padding: 25px 25px 0;
+  overflow: hidden;
+  border-radius: 8px;
+  border-left: 8px solid orange;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+.projects > div .card .content p:first-child {
+  font-weight: 700;
+  font-size: 20px;
+}
+.projects > div .card .content p:last-child {
+  max-height: 120px;
+  overflow: hidden;
+  opacity: 0.7;
+}
+.projects > div .card .card-options {
+  align-self: center;
+}
+.projects > div .card .card-options button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.trending > div img {
+  max-width: 45px;
+  border-radius: 50%;
+}
 
 /*# sourceMappingURL=style.css.map */
