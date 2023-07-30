@@ -1,5 +1,18 @@
 @import url('https://fonts.cdnfonts.com/css/euclid-circular-a');
 
+$primary: #0ea5e9;
+$secondary: #22d3ee;
+$cards-background: white;
+$text-color: white;
+$background: #bae6fd;
+
+:root {
+    --primary: #{$primary};
+    --secondary: #{$secondary};
+    --cards-background: #{$cards-background};
+    --text-color: #{$text-color};
+    --background: #{$background};
+}
 
 * {
     box-sizing: border-box;
@@ -37,30 +50,68 @@ body {
 /* Sidebar */
 aside {
     display: grid;
-    grid-template-columns: minmax(150px, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     align-content: start;
     gap: 30px;
-    padding: 20px 26px 0px 10px;
+    padding: 20px 0 0 0;
+    background-color: var(--primary);
+    color: var(--text-color);
 }
-.logo img {
-    max-width: 150px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 26px;
+    span {
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+    img {
+        max-width: 50px;
+    }
 }
 nav {
     display: grid;
     grid-template-columns: 1fr;
     gap: 50px;
-    font-size: 18px;
+    font-size: 1.1rem;
     
     .main ul, .extras ul {
         display: grid;
-        gap: 15px;
 
-        > li {
+        li {
+            position: relative;
             display: grid;
             grid-template-columns: 1.5rem 1fr;
+            align-items: center;
             gap: 5px;
             list-style: none;
+            border-left: 3px solid var(--secondary);
+            padding:8px 0 8px 26px;
+            overflow: hidden;
+            z-index: 10;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                left: -100%;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                background-color: var(--secondary);
+                transition: 0.2s ease-out;
+                z-index: -1;
+            }
+            &:hover::before{
+                left: 0;
+            }
+
+            &.active {
+                font-size: 1.3rem;
+                background-color: var(--secondary);
+            }
         }
     }
 }
@@ -109,6 +160,7 @@ header {
     border-radius: 50%;
 }
 .profile-options {
+    justify-self: end;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -241,13 +293,12 @@ main {
     grid-template-columns: 1fr;
     gap: 25px;
     align-content: start;
-    grid-template-rows: 1fr;
 }
 .announcements > div {
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
+    // grid-template-rows: repeat(3, 1fr);
 
     padding: 25px;
     border-radius: 8px;

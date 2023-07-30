@@ -1,4 +1,12 @@
 @import url("https://fonts.cdnfonts.com/css/euclid-circular-a");
+:root {
+  --primary: #0ea5e9;
+  --secondary: #22d3ee;
+  --cards-background: white;
+  --text-color: white;
+  --background: #bae6fd;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -29,32 +37,68 @@ body {
 /* Sidebar */
 aside {
   display: grid;
-  grid-template-columns: minmax(150px, 1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   align-content: start;
   gap: 30px;
-  padding: 20px 26px 0px 10px;
+  padding: 20px 0 0 0;
+  background-color: var(--primary);
+  color: var(--text-color);
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 26px;
+}
+.logo span {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
 .logo img {
-  max-width: 150px;
+  max-width: 50px;
 }
 
 nav {
   display: grid;
   grid-template-columns: 1fr;
   gap: 50px;
-  font-size: 18px;
+  font-size: 1.1rem;
 }
 nav .main ul, nav .extras ul {
   display: grid;
-  gap: 15px;
 }
-nav .main ul > li, nav .extras ul > li {
+nav .main ul li, nav .extras ul li {
+  position: relative;
   display: grid;
   grid-template-columns: 1.5rem 1fr;
+  align-items: center;
   gap: 5px;
   list-style: none;
+  border-left: 3px solid var(--secondary);
+  padding: 8px 0 8px 26px;
+  overflow: hidden;
+  z-index: 10;
+}
+nav .main ul li::before, nav .extras ul li::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: -100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--secondary);
+  transition: 0.2s ease-out;
+  z-index: -1;
+}
+nav .main ul li:hover::before, nav .extras ul li:hover::before {
+  left: 0;
+}
+nav .main ul li.active, nav .extras ul li.active {
+  font-size: 1.3rem;
+  background-color: var(--secondary);
 }
 
 /* Header */
@@ -93,6 +137,7 @@ header .bottom {
 }
 
 .profile-options {
+  justify-self: end;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -211,13 +256,11 @@ main .sidebar-main h3 {
   grid-template-columns: 1fr;
   gap: 25px;
   align-content: start;
-  grid-template-rows: 1fr;
 }
 
 .announcements > div {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
   padding: 25px;
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
