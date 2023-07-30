@@ -1,10 +1,10 @@
 @import url('https://fonts.cdnfonts.com/css/euclid-circular-a');
 
 $primary: #0ea5e9;
-$secondary: #22d3ee;
+$secondary: #0369a1;
 $cards-background: white;
 $text-color: white;
-$background: #bae6fd;
+$background: #e2e8f0;
 
 :root {
     --primary: #{$primary};
@@ -49,6 +49,7 @@ body {
 
 /* Sidebar */
 aside {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -91,7 +92,7 @@ nav {
             align-items: center;
             gap: 5px;
             list-style: none;
-            border-left: 3px solid var(--secondary);
+            border-left: 5px solid var(--secondary);
             padding:8px 0 8px 26px;
             overflow: hidden;
             z-index: 10;
@@ -118,7 +119,7 @@ nav {
                 font-size: 1.3rem;
                 background-color: var(--secondary);
                 font-weight: 600;
-            }
+            } 
         }
     }
 }
@@ -126,9 +127,12 @@ nav {
 /* Header */
 
 header {
+    position: relative;
     display: flex;
     flex-direction: column;
+    background-color: var(--cards-background);
     // justify-content: center;
+    box-shadow: 0 3px 5px rgba($color: #000000, $alpha: 0.3);
 
     .top {
         padding: 20px 40px;
@@ -149,6 +153,9 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+    i {
+        cursor: pointer;
+    }
 
     input {
         height: 30px;
@@ -157,7 +164,7 @@ header {
         border: none;
         font-family: inherit;
         padding-left: 8px;
-        font-size: 16px;
+        font-size: 1rem;
         flex: 1;
         max-width: 700px;
     }
@@ -171,11 +178,12 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: 800;
 
     i {
         margin: 0 10px 0 0;
+        cursor: pointer;
     }
     img {
         @include profile-picture;
@@ -197,7 +205,7 @@ header {
         font-weight: 700;
 
         span:last-child {
-            font-size: 20px;
+            font-size: 1.2rem;
         }
     }
 
@@ -216,12 +224,19 @@ header {
     @extend %buttons-position;
 
     button {
-        background-color: skyblue;
+        background-color: var(--primary);
         padding: 10px 30px;
         border: none;
         border-radius: 20px;
-        color: white;
+        color: var(--text-color);
+        font-family: inherit;
+        font-size: 0.9rem;
         font-weight: 700;
+        transition: 0.3s all;
+        cursor: pointer;
+        &:hover {
+            background-color: var(--secondary);
+        }
     }
 }
 
@@ -236,6 +251,7 @@ main {
     row-gap: 40px;
     align-content: start;
     padding: 20px;
+    background-color: var(--background);
 
     .projects {
         grid-area: projects;
@@ -268,11 +284,13 @@ main {
         border-radius: 8px;
         border-left: 8px solid orange;
         box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.2);
+        background-color: var(--cards-background);
 
         .content {
             p:first-child {
                 font-weight: 700;
                 font-size: 20px;
+                cursor: pointer;
             }
             p:last-child {
                 max-height: 120px;
@@ -290,6 +308,7 @@ main {
                 border: none;
                 font-size: 18px;
                 padding: 5px;
+                cursor: pointer;
             }
         }
     }
@@ -310,6 +329,7 @@ main {
     padding: 25px;
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.2);
+    background-color: var(--cards-background);
 
     .card {
         border-bottom: 2px solid rgba($color: #000000, $alpha: 0.1);
@@ -338,6 +358,7 @@ main {
     padding: 25px;
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.2);
+    background-color: var(--cards-background);
 
     .card {
         display: flex;
@@ -356,6 +377,17 @@ main {
             p {
                 opacity: 0.7;
             }
+        }
+    }
+    a.card {
+        text-decoration: none;
+        color: inherit;
+        span {
+            transition: 0.2s all;
+        }
+        &:hover span{
+            color: var(--primary);
+            letter-spacing: 3px;
         }
     }
 
