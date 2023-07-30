@@ -1,0 +1,35 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba($color: #000000, $alpha: 0.3);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+}
+
+.container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 5fr;
+    grid-template-areas: 
+    "sidebar header"
+    "sidebar main-content";
+
+    > {
+        header {
+            grid-area: header;
+        }
+        aside {
+            grid-area: sidebar;
+        }
+        main {
+            grid-area: main-content;
+        }
+    }
+}
+
