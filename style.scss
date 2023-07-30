@@ -80,6 +80,12 @@ header {
         gap: 40px;
     }
 
+    .bottom {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        padding: 20px 40px;
+    }
 }
 
 .search {
@@ -99,6 +105,10 @@ header {
         max-width: 700px;
     }
 }
+@mixin profile-picture($size: 45px) {
+    max-width: $size;
+    border-radius: 50%;
+}
 .profile-options {
     display: flex;
     align-items: center;
@@ -110,10 +120,47 @@ header {
         margin: 0 10px 0 0;
     }
     img {
-        max-width: 45px;
-        border-radius: 50%;
+        @include profile-picture;
     }
     span {
         flex: 1;
     }
 }
+.profile-lg {
+    justify-self: start;
+    display: flex;
+    gap: 10px;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        font-weight: 700;
+
+        span:last-child {
+            font-size: 20px;
+        }
+    }
+
+    img {
+        @include profile-picture(80px)
+    }
+}
+.options {
+    justify-self: end;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+
+    button {
+        background-color: skyblue;
+        padding: 10px 30px;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        font-weight: 700;
+    }
+}
+
+/* Main Content */
