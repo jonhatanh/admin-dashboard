@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/euclid-circular-a');
+
 
 * {
     box-sizing: border-box;
@@ -9,6 +11,7 @@
 body {
     min-height: 100vh;
     display: flex;
+    font-family: 'Euclid Circular A', sans-serif;
 }
 
 .container {
@@ -33,3 +36,36 @@ body {
     }
 }
 
+/* Sidebar */
+aside {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr);
+    grid-template-rows: auto auto;
+    align-content: start;
+    gap: 30px;
+    padding: 20px 26px 0px 10px;
+}
+.logo img {
+    max-width: 150px;
+}
+nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    font-size: 18px;
+    
+    .main ul, .extras ul {
+        display: grid;
+        gap: 15px;
+
+        > li {
+            display: grid;
+            grid-template-columns: 1.5rem 1fr;
+            gap: 5px;
+        }
+    }
+
+    li {
+        list-style: none;
+    }
+}
